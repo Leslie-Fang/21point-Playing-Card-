@@ -1,0 +1,165 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image:url('../images/background.jpeg');
+  background-repeat: repeat;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.start{
+  background: white;
+  text-align: center;
+  width:40%;
+  position: fixed;
+  top:200px;
+  left: 30%;
+  right: 30%;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#startValues{
+  width:40%;
+}
+
+.playBtn{
+  font-size: 20px;
+}
+.removeform{
+  display: none;
+}
+
+.cheader{
+  background: white;
+  text-align: center;
+  width:40%;
+  height:10%;
+  position: relative;
+  left: 30%;
+  right:30%;
+}
+
+.pheader{
+  background: white;
+  text-align: center;
+  width:40%;
+  height:10%;
+  position: relative;
+  left: 30%;
+  right:30%;
+}
+
+.cbody{
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 100%;
+  position: relative;
+  margin: 5%;
+}
+
+.pbody{
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 100%;
+  position: relative;
+  margin: 5%;
+}
+
+.pbottom{
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 100%;
+  position: relative;
+  margin: 5%;
+}
+
+.playerbust{
+  background: white;
+  text-align: center;
+  width:40%;
+  height:20%;
+  position: absolute;
+  left: 30%;
+  right:30%;
+}
+
+
+.computercard1 {
+  text-indent: -4000px;
+  background-color: #ccc;
+  background-repeat: repeat;
+  background-image: url('../images/pokeback.jpeg');
+  background-image: -moz-repeating-linear-gradient(34% 6% 135deg,#0F1E59, #75A1BF, #3E3E63 50%);
+  background-image: -webkit-gradient(radial, center center, 20, center center, 80, from(#3c3), color-stop(0.4, #363), to(#030));
+  /* yes, it's intentional that Mozilla, Webkit, Opera and IE all will get different backgrounds ... why not? :) */
+
+  position: absolute;
+  height: 200px;
+  width: 15%;
+  z-index: 2;
+  display: inline-block;
+}
+
+
+.normalcard{
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 200px;
+  width: 15%;
+  z-index: 1;
+  display: inline-block;
+  border: 1px;
+  border-style: solid;
+}
+
+
+.upperleft{
+  position: absolute;
+  left: 0%;
+  top:  0%;
+}
+
+.downright{
+  position: absolute;
+  right: 0%;
+  bottom:  0%;
+}
+.h{
+  color: red;
+
+}
+.d{
+  color: red;
+}
+
+.s{
+  color: black;
+}
+
+.c{
+  color: black;
+}
+
+.bottombutton1{
+  background: grey;
+  position: absolute;
+  left:45%
+}
+
+.bottombutton2{
+  background: grey;
+  position: absolute;
+  right:45%
+}
+
+
