@@ -601,9 +601,16 @@ stopadd=function(evt){
 
                 playerbottomarea.appendChild(resulttable);
                 var html='';
-                for(var k=data.length-5;k<data.length;k++){
-                    html=html+"<tr> <td>"+data[k].userInitials+"</td> <td>"+data[k].computerScore+"</td> <td>"+data[k].userScore+"</td> </tr>";;
+                if(data.length>=5){
+                    for(var k=data.length-5;k<data.length;k++){
+                        html=html+"<tr> <td>"+data[k].userInitials+"</td> <td>"+data[k].computerScore+"</td> <td>"+data[k].userScore+"</td> </tr>";;
+                    }
+                }else{
+                    for(var k=0;k<data.length;k++){
+                        html=html+"<tr> <td>"+data[k].userInitials+"</td> <td>"+data[k].computerScore+"</td> <td>"+data[k].userScore+"</td> </tr>";;
+                    }
                 }
+
                 var resultbodyarea=document.getElementById("result-list");
                 resultbodyarea.innerHTML=html;
 
