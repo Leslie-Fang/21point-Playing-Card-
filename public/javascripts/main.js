@@ -539,7 +539,112 @@ stopadd=function(evt){
             playerbottomarea.appendChild(playerbust);
         }
     }
+    playerbottomarea=document.querySelector("div .pbottom");
+    var resultForm=document.createElement("form");
+    resultForm.classList.add("resultForm");
+    resultForm.name='result';
+    resultForm.method='POST';
+    resultForm.action='/result';
 
+    var my_label1=document.createElement('label');
+    my_label1.id='my_label1';
+    my_label1.innerHTML="<b>Initials  </b>";
+
+    var my_tb=document.createElement('INPUT');
+    my_tb.type='TEXT';
+    my_tb.id='Initials';
+    my_tb.name='Initials';
+
+    var my_tb2=document.createElement('INPUT');
+    my_tb2.classList.add("haddeninput");
+    my_tb2.id='computertval';
+    my_tb2.name='computertval';
+    my_tb2.value=computertval;
+
+    var my_tb3=document.createElement('INPUT');
+    my_tb3.classList.add("haddeninput");
+    my_tb3.id='playertval';
+    my_tb3.name='playertval';
+    my_tb3.value=playertval;
+
+    var my_tb4=document.createElement('INPUT');
+    my_tb4.classList.add("my_tb2");
+    my_tb4.id="my_tb4";
+    my_tb4.type="submit";
+    my_tb4.value="Submit";
+    my_tb4.addEventListener("click",function(evt){
+        evt.preventDefault();
+        console.log('submit');
+        var myInitials=document.getElementById("Initials").value;
+        var mycomputertval=document.getElementById("computertval").value;
+        var myplayertval=document.getElementById("playertval").value;
+        var req = new XMLHttpRequest();
+        var url= "http://localhost:3000/result";
+        req.open('POST', url, true);
+        req.onload = function() {
+            if (req.status >= 200 && req.status < 400) {
+                console.log(req.response);
+                console.log('Success!!');
+                document.getElementById("my_label1").classList.add("haddeninput");
+                document.getElementById("Initials").classList.add("haddeninput");
+                document.getElementById("my_tb4").classList.add("haddeninput");
+                console.log(req.response.length);
+                data = JSON.parse(req.responseText);
+                console.log(data);
+                console.log(data.length);
+                console.log(data[0]);
+                console.log(data[data.length-1]);
+                playerbottomarea=document.querySelector("div .pbottom");
+                var resulttable=document.createElement('table');
+                resulttable.id='result-table';
+                resulttable.innerHTML="<thead> <th>Initials</th> <th>Computer Score</th> <th>User Score</th> </thead> <tbody id=\"result-list\"> </tbody>";
+
+                playerbottomarea.appendChild(resulttable);
+                var html='';
+                for(var k=data.length-5;k<data.length;k++){
+                    html=html+"<tr> <td>"+data[k].userInitials+"</td> <td>"+data[k].computerScore+"</td> <td>"+data[k].userScore+"</td> </tr>";;
+                }
+                var resultbodyarea=document.getElementById("result-list");
+                resultbodyarea.innerHTML=html;
+
+                var restartButton=document.createElement("button");
+                restartButton.classList.add("restartbutton");
+                var restartButtonText = document.createTextNode("Restart");
+                restartButton.appendChild(restartButtonText);
+                playerbottomarea.appendChild(restartButton);
+                restartButton.onclick=reset;
+            }
+        };
+        req.onerror = function() {
+            console.log('error');
+        };
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        req.send("Initials="+myInitials+"&computertval="+mycomputertval+"&playertval="+myplayertval);
+    });
+
+    resultForm.appendChild(my_label1);
+    resultForm.appendChild(my_tb);
+    resultForm.appendChild(my_tb2);
+    resultForm.appendChild(my_tb3);
+    resultForm.appendChild(my_tb4);
+
+    //resultForm.submit();
+    playerbottomarea.appendChild(resultForm);
+
+
+    /*playerbottomarea=document.querySelector("div .pbottom");
+    var restartButton=document.createElement("button");
+    restartButton.classList.add("restartbutton");
+    var restartButtonText = document.createTextNode("Restart");
+    restartButton.appendChild(restartButtonText);
+    playerbottomarea.appendChild(restartButton);
+    restartButton.onclick=reset;*/
+
+};
+
+var reset = function(){
+    console.log('reload!');
+    window.location.reload();
 };
 document.addEventListener('DOMContentLoaded', main);
 

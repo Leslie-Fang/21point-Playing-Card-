@@ -162,4 +162,52 @@ a {
   right:45%
 }
 
+.restartbutton{
+  background: grey;
+  position: absolute;
+  left:45%;
+  text-align: center;
+  bottom:  -20%;
+}
+.my_tb2{
+  background: grey;
+}
+
+.resultForm{
+  position: absolute;
+  text-align: center;
+  left:35%;
+  bottom: 40%;
+}
+
+.haddeninput{
+  display: none;
+}
+
+
+/* table styles */
+table {
+  border-collapse: collapse;
+  margin: auto;
+  position: absolute;
+  left: 30%;
+  bottom: -10%;
+}
+
+td, th {
+  border: 1px solid #555;
+  text-align: left;
+  padding: 5px;
+}
+/* color every other row */
+tr:nth-child(2n) {
+  background-color: #eee;
+}
+
+th {
+  font-weight:bold;
+  background-color: #000;
+  color: #fff;
+}
+
 
